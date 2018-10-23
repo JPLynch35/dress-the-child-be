@@ -2,7 +2,7 @@ ____ Wrote Tests ____ Implemented ____ Reviewed
 
 ##Closes Waffle Issue # 
 
-#Neccesary checkmarks:
+#Necessary checkmarks:
 
 [] All Tests are Passing
 
