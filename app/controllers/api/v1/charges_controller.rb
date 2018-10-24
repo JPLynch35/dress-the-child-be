@@ -3,7 +3,7 @@ class Api::V1::ChargesController < ApplicationController
   end
   
   def create
-    @amount = 500
+    @amount = [params[:stripeAmount]]
     customer = Stripe::Customer.create(
       :email => params[:stripeEmail],
       :source  => params[:stripeToken]
@@ -16,6 +16,9 @@ class Api::V1::ChargesController < ApplicationController
     )
       render status: 200
     end
+    puts "amount:" + params[:stripeAmount]
+    puts "email:" + params[:stripeEmail]
+    puts "token:" + params[:stripeToken]
   rescue Stripe::CardError => e
     render json: e.message
   end
