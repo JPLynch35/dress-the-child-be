@@ -3,7 +3,7 @@ class Api::V1::ChargesController < ApplicationController
   end
   
   def create
-    @amount = 500
+    @amount = params[:stripeAmount]
     customer = Stripe::Customer.create(
       :email => params[:stripeEmail],
       :source  => params[:stripeToken]
@@ -14,12 +14,8 @@ class Api::V1::ChargesController < ApplicationController
       :description => 'Rails Stripe customer',
       :currency    => 'usd'
       )
+      render status: 200
     end
-    render json: {
-      stripeAmount: params[:stripeAmount],
-      stripeEmail: params[:stripeEmail],
-      stripeToken: params[:stripeToken]
-    }.to_json
   rescue Stripe::CardError => e
     render json: e.message
   end
