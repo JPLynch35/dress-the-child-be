@@ -13,12 +13,13 @@ class Api::V1::ChargesController < ApplicationController
       :amount      => @amount,
       :description => 'Rails Stripe customer',
       :currency    => 'usd'
-    )
-      render status: 200
+      )
+      render json: {
+        stripeAmount: params[:stripeAmount],
+        stripeEmail: params[:stripeEmail],
+        stripeToken: params[:stripeToken]
+      }
     end
-    puts "amount:" + params[:stripeAmount]
-    puts "email:" + params[:stripeEmail]
-    puts "token:" + params[:stripeToken]
   rescue Stripe::CardError => e
     render json: e.message
   end
