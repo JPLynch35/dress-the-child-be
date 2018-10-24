@@ -14,12 +14,12 @@ class Api::V1::ChargesController < ApplicationController
       :description => 'Rails Stripe customer',
       :currency    => 'usd'
       )
-      render json: {
-        stripeAmount: params[:stripeAmount],
-        stripeEmail: params[:stripeEmail],
-        stripeToken: params[:stripeToken]
-      }.to_json
     end
+    render json: {
+      stripeAmount: params[:stripeAmount],
+      stripeEmail: params[:stripeEmail],
+      stripeToken: params[:stripeToken]
+    }.to_json
   rescue Stripe::CardError => e
     render json: e.message
   end
