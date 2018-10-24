@@ -18,7 +18,7 @@ class Api::V1::ChargesController < ApplicationController
         stripeAmount: params[:stripeAmount],
         stripeEmail: params[:stripeEmail],
         stripeToken: params[:stripeToken]
-      }
+      }.to_json
     end
   rescue Stripe::CardError => e
     render json: e.message
