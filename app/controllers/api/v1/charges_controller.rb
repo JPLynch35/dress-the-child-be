@@ -15,6 +15,6 @@ class Api::V1::ChargesController < ApplicationController
   end
 
   def catch_exception(exception)
-    render json: exception.message
+    render json: exception.message, status: 422
   end
 end
