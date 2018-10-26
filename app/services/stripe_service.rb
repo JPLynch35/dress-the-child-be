@@ -1,5 +1,4 @@
  class StripeService
-
   def initialize(params)
     @amount = params[:stripeAmount]
     @email  = params[:stripeEmail]
