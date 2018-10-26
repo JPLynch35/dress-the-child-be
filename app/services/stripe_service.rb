@@ -1,5 +1,4 @@
  class StripeService
-
   def initialize(params)
     @amount = params[:stripeAmount]
     @email  = params[:stripeEmail]
@@ -15,15 +14,18 @@
   attr_reader :amount, :email, :token
 
   def create_customer
-    customer = Stripe::Customer.create(email: @email, source: @token)
+    Stripe::Customer.create(
+      email: @email, 
+      source: @token
+    )
   end
 
   def charge_customer(customer)
     Stripe::Charge.create(
-      :customer  => customer.id,
-      :amount   => @amount,
-      :description => 'Dress-The-Child Donor',
-      :currency  => 'usd'
+      customer: customer.id,
+      amount: @amount,
+      description: 'Dress-The-Child Donor',
+      currency: 'usd'
     )
   end
 end
