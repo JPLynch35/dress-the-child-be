@@ -28,10 +28,8 @@
       amount: amount,
       description: 'Dress-The-Child Donor',
       currency: 'usd',
-      source:{
-        address_city: city,
-        address_state: state
-      } 
+      address_city: city,
+      address_state: state
     )
   end
 end
