@@ -13,7 +13,7 @@
   end
 
   private
-  attr_reader :amount, :email, :token
+  attr_reader :amount, :email, :token, :city, :state
 
   def create_customer
     Stripe::Customer.create(
