@@ -3,6 +3,8 @@
     @amount = params[:stripeAmount]
     @email  = params[:stripeEmail]
     @token  = params[:stripeToken]
+    @city   = params[:stripeCity]
+    @state  = params[:stripeState]
   end
 
   def connect
@@ -25,7 +27,10 @@
       customer: customer.id,
       amount: @amount,
       description: 'Dress-The-Child Donor',
-      currency: 'usd'
+      currency: 'usd',
+      source: 
+        address_city: @city,
+        address_state: @state
     )
   end
 end
