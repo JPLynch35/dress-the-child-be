@@ -27,9 +27,7 @@
       customer: customer.id,
       amount: amount,
       description: 'Dress-The-Child Donor',
-      currency: 'usd',
-      address_city: city,
-      address_state: state
+      currency: 'usd'
     )
   end
 end
