@@ -17,20 +17,21 @@
 
   def create_customer
     Stripe::Customer.create(
-      email: @email, 
-      source: @token
+      email: email, 
+      source: token
     )
   end
 
   def charge_customer(customer)
     Stripe::Charge.create(
       customer: customer.id,
-      amount: @amount,
+      amount: amount,
       description: 'Dress-The-Child Donor',
       currency: 'usd',
-      source: 
-        address_city: @city,
-        address_state: @state
+      source:{
+        address_city: city,
+        address_state: state
+      } 
     )
   end
 end
