@@ -31,3 +31,10 @@ rake db:{create,migrate}
 
 This project involves StripeMock, RSpec, FactoryBot, and Figaro with regards to testing.  
 An API is needed to run the test suite.
+
+### Contributors
+
+* [Cody Taft](https://github.com/codytaft)
+* [Emmie Hayes](https://github.com/emmiehayes)
+* [Jesse McFadden](https://github.com/JesseMcBrennan)
+* [JP Lynch](https://github.com/JPLynch35)
