@@ -3,6 +3,8 @@
     @amount = params[:stripeAmount]
     @email  = params[:stripeEmail]
     @token  = params[:stripeToken]
+    @city   = params[:stripeCity]
+    @state  = params[:stripeState]
   end
 
   def connect
@@ -11,19 +13,19 @@
   end
 
   private
-  attr_reader :amount, :email, :token
+  attr_reader :amount, :email, :token, :city, :state
 
   def create_customer
     Stripe::Customer.create(
-      email: @email, 
-      source: @token
+      email: email, 
+      source: token
     )
   end
 
   def charge_customer(customer)
     Stripe::Charge.create(
       customer: customer.id,
-      amount: @amount,
+      amount: amount,
       description: 'Dress-The-Child Donor',
       currency: 'usd'
     )
